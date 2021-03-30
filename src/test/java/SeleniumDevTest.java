@@ -12,18 +12,13 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class SeleniumDevTest {
-
-    private WebDriver driver;
-    private WebDriverWait wait;
+public class SeleniumDevTest extends BaseTest{
 
     @BeforeMethod
-    private void beforeMethod(){
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
+    protected void beforeMethod(){
+
         driver.get("https://www.selenium.dev/");
-        wait = new WebDriverWait(driver, 10);
+
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//nav[@id='navbar']")));
     }
 
@@ -64,11 +59,6 @@ public class SeleniumDevTest {
         }
 
         Assert.assertTrue(alreadyFound, "Search results are more than 0.");
-    }
-
-    private void waitUntilElementIsVisible(By xpath){
-        WebElement element = driver.findElement(xpath);
-        wait.until(ExpectedConditions.visibilityOf(element));
     }
 
     @AfterMethod
