@@ -23,8 +23,7 @@ public class BaseTest {
     }
 
     protected void waitUntilElementIsVisible(By xpath){
-        WebElement element = driver.findElement(xpath);
-        wait.until(ExpectedConditions.visibilityOf(element));
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(xpath)));
     }
 
     @AfterMethod
