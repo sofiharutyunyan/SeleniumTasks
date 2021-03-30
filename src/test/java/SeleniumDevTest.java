@@ -61,8 +61,4 @@ public class SeleniumDevTest extends BaseTest{
         Assert.assertTrue(alreadyFound, "Search results are more than 0.");
     }
 
-    @AfterMethod
-    private void afterMethod() throws InterruptedException {
-        driver.quit();
-    }
 }
