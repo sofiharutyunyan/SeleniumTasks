@@ -1,4 +1,4 @@
-package pom.greetz;
+package pom;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -12,14 +12,9 @@ public class BasePage {
     protected WebDriver driver;
     protected WebDriverWait wait;
 
-    public BasePage(String url) {
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
-
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.get(url);
-
-        wait = new WebDriverWait(driver, 10);
+    public BasePage(WebDriver driver) {
+        this.driver = driver;
+        wait = new WebDriverWait(driver, 30);
     }
 
 }
